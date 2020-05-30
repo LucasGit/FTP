@@ -11,43 +11,8 @@
 #ifndef _FTP_GET_FILE_
 #define _FTP_GET_FILE_
 
+int FTPGetFileCore(void *arg);
+int FTPFileGetDemo(void);
 
-
-#define	LENBUFFER	504		// so as to make the whole packet well-rounded ( = 512 bytes)
-struct packet
-{
-	short int conid;
-	short int type;
-	short int comid;
-	short int datalen;
-	char buffer[LENBUFFER];
-};
-
-struct ftp_file_get_ctrl
-{
-    char *filename;
-    char *server_addr;
-    short server_port;
-    struct packet packet;
-};
-
-
-#define	PORTSERVER	8487
-#define CONTROLPORT	PORTSERVER
-#define DATAPORT	(PORTSERVER + 1)
-
-enum TYPE
-	{
-		REQU,
-		DONE,
-		INFO,
-		TERM,
-		DATA,
-		EOT
-	};
-
-
-struct packet* ntohp(struct packet*);
-struct packet* htonp(struct packet*);
 
 #endif

@@ -144,11 +144,11 @@ int FTPGetFileCore(void *arg)
 		#if FTP_GET_FILE_DEBUG_EN
 			if(file_size == TotalSize)
 			{
-				FTP_TRACE("file recv suceess!\n");
+				FTP_TRACE("file recv suceess!,file:%d,total:%d\n",file_size,TotalSize);
 			}
 			else
 			{	
-				FTP_TRACE("file recv failed!\n");
+				FTP_TRACE("file recv failed!,file:%d,total:%d\n",file_size,TotalSize);
 			}
 		#endif
 	}
